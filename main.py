@@ -7,7 +7,7 @@ from torch.utils.tensorboard import SummaryWriter
 from project1_model import project1_model
 from torchsummary import summary
 from lookahead import Lookahead 
-
+import time as time
 
 # Training
 def train(epoch, config):
@@ -128,7 +128,7 @@ if __name__ == '__main__':
         print("===============================")
         print("Total parameters exceeding 5M") 
         print("===============================")
-        exit()
+        #exit()
     # exit()
 
 
@@ -136,6 +136,7 @@ if __name__ == '__main__':
     if device == 'cuda':
         net = torch.nn.DataParallel(net)
         cudnn.benchmark = True
+        print("Device: CUDA")
 
     """
     Weight initialization for ResNet 
@@ -184,7 +185,10 @@ if __name__ == '__main__':
     writer = SummaryWriter('summaries/'+exp) 
 
     for epoch in range(start_epoch, config["max_epochs"]): 
+        start = time.time()
         train(epoch, config) 
         test(epoch, config, savename=exp) 
         scheduler.step()
+        end = time.time()
+        print("Time taken for this epoch :", end-start," seconds.")
     writer.close() 
