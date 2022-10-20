@@ -121,7 +121,7 @@ if __name__ == '__main__':
     
     net, total_params = project1_model(config=config) 
     config['total_params'] = total_params 
-    print(net)
+    #print(net)
     print('Total Parameters: ', total_params) 
 
     if total_params > 5_000_000: 
