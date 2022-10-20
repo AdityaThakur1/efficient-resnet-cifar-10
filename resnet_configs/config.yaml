@@ -18,7 +18,7 @@ best_model:
   data_augmentation: 1 # True=1, False=0 
   data_normalize: 1 # True=1, False=0 
   grad_clip: 0.1 
-  lookahead: 1 
+  lookahead: 0 
 
 resnet18:
   conv_kernel_sizes: [3, 3, 3, 3] 
