@@ -193,13 +193,13 @@ def project1_model(config=None):
     # Best Model 
     net =  ResNet(
             block=BasicBlock, 
-            num_blocks=[4, 4, 3],                          # N: number of Residual Layers | Bi:Residual blocks in Residual Layer i 
-            conv_kernel_sizes=[3, 3, 3],            # Fi: Conv. kernel size in Residual Layer i 
-            shortcut_kernel_sizes=[1, 1, 1] ,    # Ki: Skip connection kernel size in Residual Layer i 
-            num_channels=64,                      # Ci: # channels in Residual Layer i 
-            avg_pool_kernel_size=8,      # P: Average pool kernel size 
-            drop=0,                                      # use dropout with drop proportion 
-            squeeze_and_excitation=1   # Enable/disable Squeeze-and-Excitation Block 
+            num_blocks=config['num_blocks'],                          # N: number of Residual Layers | Bi:Residual blocks in Residual Layer i 
+            conv_kernel_sizes=config['conv_kernel_sizes'],            # Fi: Conv. kernel size in Residual Layer i 
+            shortcut_kernel_sizes=config['shortcut_kernel_sizes'],    # Ki: Skip connection kernel size in Residual Layer i 
+            num_channels=config['num_channels'],                      # Ci: # channels in Residual Layer i 
+            avg_pool_kernel_size=config['avg_pool_kernel_size'],      # P: Average pool kernel size 
+            drop=config['drop'],                                      # use dropout with drop proportion 
+            squeeze_and_excitation=config['squeeze_and_excitation']   # Enable/disable Squeeze-and-Excitation Block 
         ) 
     
     total_params = 0 
