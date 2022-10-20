@@ -73,6 +73,9 @@ def test(epoch, config, savename):
             'epoch': epoch,
             'config': config
         }
+        path = os.path.join('./summaries/', savename)
+        if not os.path.exists(path):
+            os.mkdir(path)
         torch.save(state, os.path.join('./summaries/', savename, 'ckpt.pth'))
         best_acc = acc
 
