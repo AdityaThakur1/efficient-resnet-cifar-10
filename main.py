@@ -37,7 +37,7 @@ def train(epoch, config):
         # print('Batch_idx: %d | Train Loss: %.3f | Train Acc: %.3f%% (%d/%d)'% (batch_idx, train_loss/(batch_idx+1), 100.*correct/total, correct, total)) 
     writer.add_scalar('Loss/train_loss', np.mean(train_losses), epoch) 
     writer.add_scalar('Accuracy/train_accuracy', np.mean(train_acc), epoch) 
-    print(Train_accuracy : ', np.mean(train_acc))
+    print("Train_accuracy : ", np.mean(train_acc))
     
 # Testing 
 def test(epoch, config, savename):
@@ -63,7 +63,7 @@ def test(epoch, config, savename):
             # print('Batch_idx: %d | Test Loss: %.3f | Test Acc: %.3f%% (%d/%d)'% ( batch_idx, test_loss/(batch_idx+1), 100.*correct/total, correct, total)) 
         writer.add_scalar('Loss/test_loss', np.mean(test_losses), epoch) 
         writer.add_scalar('Accuracy/test_accuracy', np.mean(test_acc), epoch)
-        print(Test_accuracy : ', np.mean(test_acc))
+        print("Test_accuracy : ", np.mean(test_acc))
 
     # Save checkpoint.
     acc = 100.*correct/total
